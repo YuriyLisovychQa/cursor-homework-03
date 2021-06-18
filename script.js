@@ -112,7 +112,7 @@ const countLetter = (sentenceToCount, letterToCount) => {
 const convertCurrency = (currency)=> {
     if (currency.includes("$")) {
         return (currency).substring(0, currency.length - 1) * 27
-    } else if (currency.includes("UAH") || isSecureContext.includes("uah")) {
+    } else if (currency.includes("UAH") || currency.includes("uah")) {
         return Math.floor((currency).substring(0, currency.length - 3) / 27)
     } else {
         return "Error: Incorrect value";
