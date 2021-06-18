@@ -11,6 +11,16 @@ document.getElementById("max-digit-btn").addEventListener("click", function() {
     document.getElementById("max-digit").value = "";
 });
 
+document.getElementById("pow-of-number-btn").addEventListener("click", function() {
+    let number = document.getElementById("get-number").value;
+    let pow = document.getElementById("get-pow").value;
+
+    document.getElementById("pow-of-number-result").innerHTML = getPow(number,pow);
+    document.getElementById("get-number").value = "";
+    document.getElementById("get-pow").value = "";
+    }
+)
+
 document.getElementById("beatify-name-btn").addEventListener("click", function() {
     let name = document.getElementById("user-name").value;
 
@@ -76,11 +86,15 @@ const getMaxDigit = (number) => {
 }
 
 // (2 function)
-// let number = prompt("Enter a number")
-// const getSquareOfNumber = (number) => {
-//         return number.map(x => x * x)
-// }
-// console.log(getSquareOfNumber(number))
+
+const getPow = (number, pow) =>{
+    let result = 1;
+    for (let i = 1; i <= Math.abs(pow); i ++){
+        if(pow >= 0)
+            result = number * result;
+        else result = result * (1 / number);
+    } return result;
+}
 
 // (3 function)
 const beatifyName = (name) => {
