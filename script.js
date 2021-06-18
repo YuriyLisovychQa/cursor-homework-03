@@ -75,6 +75,13 @@ const getMaxDigit = (number) => {
     );
 }
 
+// (2 function)
+// let number = prompt("Enter a number")
+// const getSquareOfNumber = (number) => {
+//         return number.map(x => x * x)
+// }
+// console.log(getSquareOfNumber(number))
+
 // (3 function)
 const beatifyName = (name) => {
     return(name.charAt(0).toUpperCase() + name.slice(1, name.length).toLowerCase());
@@ -105,7 +112,7 @@ const countLetter = (sentenceToCount, letterToCount) => {
 const convertCurrency = (currency)=> {
     if (currency.includes("$")) {
         return (currency).substring(0, currency.length - 1) * 27
-    } else if (currency.includes("UAH")) {
+    } else if (currency.includes("UAH") || isSecureContext.includes("uah")) {
         return Math.floor((currency).substring(0, currency.length - 3) / 27)
     } else {
         return "Error: Incorrect value";
@@ -115,7 +122,7 @@ const convertCurrency = (currency)=> {
 // (8 function)
 const getRandomPassword = (number) => {
     if (inRange(number, MIN_DIGITS_QUANTITY, MAX_DIGITS_QUANTITY)) {
-        alert(
+        return (
             Math.abs(
                 Math.floor(
                     Math.random() *
@@ -125,7 +132,7 @@ const getRandomPassword = (number) => {
             )
         );
     } else if (number === "") {
-        alert(
+        return (
             Math.abs(
                 Math.floor(
                     Math.random() *
@@ -148,4 +155,3 @@ const inRange = (value, min, max) => {
 const filterSentence = (sentenceToDelete, letterToDelete) => {
     return sentenceToDelete.split("").filter(letter => letter !== letterToDelete).join("");
 }
-
