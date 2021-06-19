@@ -15,11 +15,10 @@ document.getElementById("pow-of-number-btn").addEventListener("click", function(
     let number = document.getElementById("get-number").value;
     let pow = document.getElementById("get-pow").value;
 
-    document.getElementById("pow-of-number-result").innerHTML = getPow(number,pow);
+    document.getElementById("pow-of-number-result").innerHTML = getPow(number, pow);
     document.getElementById("get-number").value = "";
     document.getElementById("get-pow").value = "";
-    }
-)
+});
 
 document.getElementById("beatify-name-btn").addEventListener("click", function() {
     let name = document.getElementById("user-name").value;
