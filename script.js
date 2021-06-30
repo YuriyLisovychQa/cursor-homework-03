@@ -1,6 +1,6 @@
 const MILITARY_COLLECTION = 1.5;
 const VALUE_ADDED_TAX = 18;
-const DEFAUL_DIGITS_QUANTITY = 8;
+const DEFAULT_DIGITS_QUANTITY = 8;
 const MAX_DIGITS_QUANTITY = 8;
 const MIN_DIGITS_QUANTITY = 1;
 
@@ -39,10 +39,12 @@ const getRevenue = (income) => {
 
 // (5 function)
 const getRandomNumber = (firstNumber, secondNumber) => {
+    firstNumber = Math.ceil(firstNumber);
+    secondNumber = Math.floor(secondNumber);
     return (isNaN(firstNumber) && isNaN(secondNumber)) || firstNumber >= secondNumber
         || firstNumber < 0 || secondNumber < 0
         ? "Error: Incorrect value"
-        : Math.floor((Math.random() * secondNumber) + firstNumber);
+        : Math.floor(Math.random() * (secondNumber - firstNumber + 1) + firstNumber);
 }
 
 // (6 function)
@@ -54,7 +56,7 @@ const countLetter = (sentenceToCount, letterToCount) => {
 const convertCurrency = (currency)=> {
     if (currency.includes("$")) {
         return (currency).substring(0, currency.length - 1) * 27
-    } else if (currency.includes("UAH") || currency.includes("uah")) {
+    } else if (currency.toUpperCase() || currency.toLowerCase()) {
         return Math.floor((currency).substring(0, currency.length - 3) / 27)
     } else {
         return "Error: Incorrect value";
@@ -78,9 +80,9 @@ const getRandomPassword = (number) => {
             Math.abs(
                 Math.floor(
                     Math.random() *
-                    (Math.pow(10, DEFAUL_DIGITS_QUANTITY - 1) -
-                        Math.pow(10, DEFAUL_DIGITS_QUANTITY)) +
-                    DEFAUL_DIGITS_QUANTITY
+                    (Math.pow(10, DEFAULT_DIGITS_QUANTITY - 1) -
+                        Math.pow(10, DEFAULT_DIGITS_QUANTITY)) +
+                    DEFAULT_DIGITS_QUANTITY
                 )
             )
         );
